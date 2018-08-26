@@ -1,0 +1,137 @@
+// Layout of Main Content
+@require _globals
+
+mid_layout()
+  content-offset = 8px
+  content-padding = 1.2% //0.5rem
+  layout-1col-main-width = 1.0
+  layout-2col-sidebar-width = 0.22
+  layout-3col-sidebar-width = 0.22
+  layout-2col-main-width = percentage(1 - layout-2col-sidebar-width)
+  layout-3col-main-width = percentage(1 - layout-3col-sidebar-width * 2)
+  section-lateral-padding = content-padding
+  section-vertical-padding = 0.5rem
+  section-min-height = 440px
+  section-min-width = 180px
+  section-max-width = 400px
+  mid-diff = banner-height + menu-height + footer-height
+
+  #mid
+    //position: absolute
+    //top: banner-height + menu-height
+    //bottom: footer-height
+    //width: 100vw
+    min-width: 800px
+    background-color: theme-cobalt-maincontent-bgcolor
+    overflow-y auto
+
+    position: relative;
+    margin-top: banner-height + menu-height
+    //top: 158px;
+    //bottom: 110px;
+    width: 100vw;
+    height: "calc(100vh - %s)" % mid-diff // height: calc(100vh - 268px);
+    //min-width: 800px;
+    //background-color: #fdfdfd;
+    //overflow-y: auto;
+    margin-left: auto;
+    max-width: 1400px;
+    margin-right: auto;
+
+  #main  // main content takes the hit for gutter so it's width is reduced by gutter * 2
+    clearfix()
+    min-height: section-min-height
+    height: calc(100% - 1.4rem)
+    margin-top: 0
+    margin-bottom: 0.1rem
+    padding: 0.1rem section-lateral-padding
+    position: relative
+    overflow-y: auto
+    background-color: color-off-white
+    //box-shadow: theme-common-box-shadow-middle-bottom
+    // left main and right columns present. split - 30%:4px:40%-8px:4px:30%
+    &.layout-left-main-right
+      float: left
+      margin-left: 4px
+      width: "calc(%s - 8px)" % layout-3col-main-width
+      //box-shadow: theme-common-box-shadow-right-bottom
+    //margin-right: 4px
+    &.layout-left-main  // left and main columns only. split - 35%:5px:65%-5px
+      float: right
+      margin-right: 0
+      width: "calc(%s - 5px)" % layout-2col-main-width
+      //box-shadow: theme-common-box-shadow-left-bottom
+      //margin-left: 5px
+    &.layout-main-right  // main and right columns only. split - 65%-5px:35%
+      float: left
+      width: "calc(%s - 5px)" % layout-2col-main-width
+      margin-left: 0
+      //box-shadow: theme-common-box-shadow-right-bottom
+      //margin-right: 5px
+    &.layout-main  // main column only
+      width: percentage(layout-1col-main-width)
+      margin-left: auto
+      margin-right: auto
+      overflow auto
+
+    // General Styles
+    .page-heading
+      text-align: center
+      .page-title
+        color: theme-cobalt-pagetitle-color
+        text-transform: capitalize
+        padding-right: 4%
+        margin: 0.3rem 0
+
+    //form()  // we should only have standard sized forms in main
+    mat-form()
+
+  #left-side
+    clearfix()
+    position: relative
+    overflow: auto
+    min-height: section-min-height
+    min-width: section-min-width
+    max-width: section-max-width
+    height: 100%
+    float: left
+    margin-top: 0
+    //margin-bottom: (footer-height - 2px)
+    padding: section-vertical-padding section-lateral-padding
+    box-shadow: theme-common-box-shadow-right-bottom
+    &.layout-left-main-right
+      width: percentage(layout-3col-sidebar-width)
+      margin-left: 0
+      margin-right: 0
+    &.layout-left-main
+      width: percentage(layout-2col-sidebar-width)
+      margin-left: 0
+      margin-right: 0
+    &.layout-main-right
+      display: none
+    &.layout-main  // main column only
+      display: none
+
+  #right-side
+    clearfix()
+    position: relative
+    overflow: auto
+    min-height: section-min-height
+    min-width: section-min-width
+    max-width: section-max-width
+    height: 100%
+    float: right
+    margin-top: 0
+    //margin-bottom: (footer-height - 2px)
+    padding: section-vertical-padding section-lateral-padding
+    box-shadow: theme-common-box-shadow-left-bottom
+    &.layout-left-main-right
+      width: percentage(layout-3col-sidebar-width)
+      margin-right: 0
+    &.layout-main-right
+      width: percentage(layout-2col-sidebar-width)
+      margin-right: 0
+    &.layout-left-main
+      display: none
+    &.layout-main  // main only
+      display: none

@@ -1,0 +1,33 @@
+@require '_styl/_fonts.styl'
+@require '_styl/_globals.styl'
+@require '_styl/*'
+
+html
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+*, *:before, *:after
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+
+body
+  min-width: 800px
+  margin: 0
+  font-family: bariol, Helvetica, Arial, sans-serif
+  background: #f9f9f9  //theme-cobalt-body-bgcolor url("/assets/images/paper_fibers.png") fixed
+  box-sizing border-box
+
+  admin_menu()
+  banner()
+  menu()
+  flash()
+  common()
+  page-form()
+  menu-form()
+
+  mid_layout()
+  module()
+  summernote()
+  footer()

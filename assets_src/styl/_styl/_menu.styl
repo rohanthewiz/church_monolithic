@@ -1,0 +1,127 @@
+// Menu
+@require _globals
+
+admin_menu()
+  admin-menu-line-height = 1.4rem
+  #admin-menu
+    z-index: 110
+    position: fixed
+    top: 0
+    width: 100%
+    margin: 0
+    line-height: admin-menu-line-height
+    background-color: rgba(#a94b55, 0.7)
+    li
+      display: inline-block
+      line-height: admin-menu-line-height
+      margin: 0 0.3rem
+      padding: 0 0.3rem
+      cursor: pointer
+      &:last-child
+        float: right
+      a
+        font-size: 0.9rem
+        line-height: admin-menu-line-height
+        &:hover
+          line-height: admin-menu-line-height
+
+menu()
+  menu-height = 28px
+  menu-shadow = 0 1px 4px rgba(91, 105, 113, 0.8)
+  submenu-shadow = 0 2px 8px rgba(91, 105, 113, 0.8)
+
+  #header
+    &.theme-cobalt
+      nav
+        background-color: theme-cobalt-nav-bgcolor
+        ul
+          li
+            background-color: theme-cobalt-nav-bgcolor
+        a
+          color: theme-cobalt-nav-a-color
+          &:hover
+            color: theme-cobalt-nav-a-hover-color
+            background:  theme-cobalt-menuitem-hilite-background
+
+    position: fixed
+    z-index: 101;
+    top: 130px
+    width: 100%
+    //no effect //background-color: ...
+    &::after
+      content: "";
+      position: absolute;
+      z-index: -1;
+      -webkit-box-shadow: menu-shadow
+      -moz-box-shadow: menu-shadow
+      box-shadow: menu-shadow
+      width: calc(100% - 8px)
+      bottom: 1px
+      left: 4px /* one half of the remaining 8px */
+      height: 3px
+
+    nav
+      z-index: 102
+      margin: 0
+      > ul
+        > li
+          border-radius: 0
+          &.menuitem-active
+            border-bottom: 2px solid greenyellow;
+          ul
+            border-bottom-left-radius: 2px
+            border-bottom-right-radius: 2px
+      ul
+        padding: 0;
+        margin: 0 0 -1px 0;
+        list-style: none;
+        position: relative;
+        li
+          display:inline-block;
+          height: menu-height // This applies to all lis from here down unless overwritten
+          margin: 0 0 0 -4px
+          cursor: pointer
+          &:hover > ul
+            display: inherit
+            opacity: 1
+          //a
+            //&::after
+            //  content: "\00b7";
+            //&:only-child::after
+            //  content: ''
+          ul
+            display: none
+            opacity: 0
+            position: absolute
+            top: menu-height
+            transition: opacity ease 0.4s
+            z-index: 101;
+            li
+              width: 170px
+              float: none
+              display: list-item
+              position: relative
+              &:last-child
+                border-bottom-left-radius 2px
+                border-bottom-right-radius 2px
+                &::after
+                  content: "";
+                  position: absolute;
+                  z-index: -1;
+                  -webkit-box-shadow: submenu-shadow;
+                  -moz-box-shadow: submenu-shadow;
+                  box-shadow: submenu-shadow;
+                  width: calc(100% - 12px)
+                  top: 0;
+                  left: 4px; /* one half of the remaining 1% */
+                  height: menu-height - 1px;
+              ul // expand right
+                position: relative
+                left: 170px
+                top: -(menu-height)
+      a
+        display:block;
+        padding:0 10px;
+        font-size:1.0rem;
+        line-height: menu-height;
+        text-decoration none

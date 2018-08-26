@@ -1,0 +1,46 @@
+// Footer
+@require _globals
+
+footer()
+  #footer
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
+    height: footer-height
+    text-align center
+    padding: 0.2em
+    font-size: 0.8em
+    color: theme-cobalt-footer-color
+    //background-color theme-cobalt-footer-bgcolor //lighten(theme-dark, 20%)
+    background-color: theme-cobalt-footer-bgcolor //theme-cobalt-body-bgcolor url("/assets/images/paper_fibers.png") fixed
+    nav#footer-menu
+      margin: 35px 0;
+      > ul
+        > li
+          border-radius: 0
+          ul
+            border-bottom-left-radius: 2px
+            border-bottom-right-radius: 2px
+      ul
+        padding: 0;
+        margin: 0 0 -1px 0;
+        list-style: none;
+        position: relative;
+        li
+          display:inline-block;
+          cursor: pointer
+      a
+        display:block;
+        padding:0 10px;
+        color: theme-cobalt-footer-a-color //theme-light-black;
+        font-size:1.0rem;
+        text-decoration none
+        &:hover
+          color: theme-cobalt-nav-a-hover-color
+          background-color: theme-cobalt-nav-a-hover-bgcolor
+          border-radius: 3px
+
+    #credit
+      font-size: 0.75rem
+      padding-bottom: 0.8em

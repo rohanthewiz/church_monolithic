@@ -1,0 +1,36 @@
+package: github.com/rohanthewiz/church
+import:
+- package: github.com/labstack/echo
+  version: ~3.2.1
+  subpackages:
+  - middleware
+- package: github.com/lib/pq
+- package: github.com/pkg/errors
+  version: ~0.8.0
+- package: golang.org/x/crypto
+  version: b176d7def5d71bdd214203491f89843ed217f420
+  subpackages:
+  - scrypt
+- package: gopkg.in/redis.v5
+  version: ~5.2.9
+- package: github.com/vattle/sqlboiler
+  version: ~2.5.0
+- package: github.com/sirupsen/logrus
+  version: ~1.0.0
+- package: github.com/rohanthewiz/logger
+  version: ~1.0.0-rc.1
+- package: gopkg.in/relistan/rubberneck.v1
+  version: ~1.0.1
+- package: github.com/rohanthewiz/serr
+  version: ~1.0.0-rc.1
+- package: github.com/rohanthewiz/rotatelogs
+  version: ~0.1.2
+- package: github.com/rohanthewiz/element
+- package: github.com/PuerkitoBio/goquery
+  version: ~1.1.0
+- package: github.com/andybalholm/cascadia
+- package: github.com/vincent-petithory/dataurl
+- package: github.com/pierrec/xxHash
+  version: ^0.1.1
+  subpackages:
+  - xxHash64

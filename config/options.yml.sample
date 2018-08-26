@@ -1,0 +1,59 @@
+# At initial setup, options.yml.sample must be copied to `config/options.yml`
+
+# Environment is set with APP_ENV  e.g. `APP_ENV=development ./my-app`
+# Development is the default environment
+
+defaults: &defaults
+  theme: cobalt
+  server:
+    port: 4000
+  log:
+    level: info
+    format: text #json
+    info_path: "log/info.log"
+    error_path: "log/error.log"
+  pg:
+    host: localhost
+    port: 5432
+    user: pg_user
+    word: secret
+    database: app_database
+  ftp:
+    main:
+      enabled: false
+      host: ftp.server.org
+      port: "21"
+      user: ftp_user
+      word: secret
+      web_access_path: "http://web-access-to-static-files-on-ftp-server"
+    backup:
+      enabled: false
+      host: blah
+      port: blah
+      user: blah
+      word: blah
+      web_access_path: ""
+
+development:
+  <<: *defaults
+  log:
+    level: debug
+    format: text
+
+test:
+  <<: *defaults
+  log:
+    level: debug
+    format: text
+  pg:
+    database: app_test
+
+production:
+  <<: *defaults
+  server:
+    port: 80
+  log:
+    level: info
+    format: json
+  pg:
+    database: app_production

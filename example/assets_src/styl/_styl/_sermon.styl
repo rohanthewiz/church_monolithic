@@ -1,0 +1,24 @@
+@require _globals
+
+sermon()
+  .sermon
+    &-title
+      padding-left 0.1rem
+      padding-right 0.1rem
+    &-sub-title, &-footer
+      font-size 0.9em
+      color: theme-cobalt-sermon-subtitle-color
+    &-play-icon
+      padding-left 28px
+
+  .ch-sermons_list
+    height: 100%
+  .ch-sermons-list-wrapper
+    position: relative
+    height: calc(100% - 20px)
+
+  .sermons-list
+    &-title
+      text-align: center
+      padding-left: 0.1rem
+      padding-right: 0.1rem

@@ -1,0 +1,33 @@
+@require _globals
+
+common()
+  .theme-cobalt
+    a
+      text-decoration none
+      &:link, &:visited
+        color: theme-cobalt-a-color
+      &:hover
+        text-decoration underline
+    .scripture
+      color: theme-cobalt-scripture-color
+      background-color: #a0cb7e
+    .categories
+      color: theme-cobalt-categories-color
+      background-color: theme-cobalt-categories-bgcolor
+  a
+    font-weight bold
+    outline: none
+  .scripture
+    padding: 0.2rem 0.5rem
+    border-radius 0.3em
+    margin-right: 0.3rem
+
+  .categories
+    display: inline-block
+    padding: 0.2rem 0.5rem
+    border-radius 0.3em
+
+  .edit-link
+    > .edit-icon
+      height: 33px
+      padding: 0.1rem

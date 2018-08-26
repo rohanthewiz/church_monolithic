@@ -1,0 +1,23 @@
+.idea/
+.DS_Store
+
+church
+config/options.yml
+config/random_seeds.txt
+sqlboiler.toml
+
+log/*
+!log/.keep
+
+vendor/
+sermons/
+node_modules/
+
+# Store for dynamic images from articles etc.
+dist/img/*
+!dist/img/.keep
+
+exmaple/log/
+example/.idea/
+example/config/options.yml
+# keep sample random_seeds
