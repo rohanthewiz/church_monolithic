@@ -3,12 +3,13 @@ package main
 // go:generate sqlboiler postgres
 
 import (
-	"github.com/rohanthewiz/church/web"
+	"github.com/rohanthewiz/church/admin"
 	"github.com/rohanthewiz/church/config"
-	. "github.com/rohanthewiz/logger"
-	"gopkg.in/relistan/rubberneck.v1"
-	"github.com/sirupsen/logrus"
 	"github.com/rohanthewiz/church/db"
+	"github.com/rohanthewiz/church/web"
+	. "github.com/rohanthewiz/logger"
+	"github.com/sirupsen/logrus"
+	"gopkg.in/relistan/rubberneck.v1"
 )
 
 var Version, GitCommitHash, BuildTimestamp string  // buildtime vars
@@ -45,6 +46,9 @@ func main() {
 
 	Log("Info", "Version Info", "Version", config.Version, "CommitHash", config.GitCommitHash,
 		"BuildTimestamp", config.BuildTimestamp)
+
+	// Do auth initialization
+	admin.AuthBootstrap()
 
 	web.Serve()
 }

@@ -100,8 +100,8 @@ func (m *ModuleUserForm) Render(params map[string]map[string]string, loggedIn bo
 			e("div", "class", "form-inline").R(
 				e("div", "class", "form-group").R(
 					e("input", "class", "role", "name", "role", "type", "text",
-						"required", "required", "value", strconv.Itoa(1)).R(),  // hardwire to one for now - todo
-					e("label", "class", "control-label", "for", "role").R("Role - (just enter 1 for now)"),
+						"required", "required", "value", strconv.Itoa(usr.Role)).R(),
+					e("label", "class", "control-label", "for", "role").R("Role (1 - admin, 5 - publisher, 7 - editor, 9 - registered_user)"),
 					e("i", "class", "bar").R(),
 				),
 				e("div", "class", "checkbox").R(

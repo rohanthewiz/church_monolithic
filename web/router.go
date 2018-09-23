@@ -29,7 +29,9 @@ func Serve() {
 	e.GET("/login", auth_controller.LoginHandler)
 	e.GET("/logout", auth_controller.LogoutHandler)
 	e.POST("/auth", auth_controller.AuthHandler) // Attempt login
-	e.GET("/super", admin_controller.SetupSuperAdmin) // Establish first SuperAdmin
+
+	//?username=joe&password=secret&token=abc12345678&
+	e.GET("/super", admin_controller.SetupSuperAdmin) // (API) Establish first SuperAdmin
 
 	// API
 	e.GET("/calendar", calendar.GetFullCalendarEvents)

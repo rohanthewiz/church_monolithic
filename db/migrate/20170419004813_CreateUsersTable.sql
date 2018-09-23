@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
   updated_at timestamptz,
   updated_by text NOT NULL, -- username - for accountability
   enabled BOOLEAN NOT NULL,
-  role int NOT NULL, -- 1 - Super admin, 3 - admin, 5 - publisher, 7 - author, 9 - registered_user
+  role int NOT NULL, -- 99 - Super admin, 1 - admin, 5 - publisher, 7 - editor, 9 - registered_user
   username text NOT NULL,  -- (like a slug) could assist by auto creating based on first_name, last_name, checking for uniqueness
   email_address text NOT NULL,
   first_name text NOT NULL,

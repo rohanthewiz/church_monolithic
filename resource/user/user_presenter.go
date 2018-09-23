@@ -37,8 +37,9 @@ type Presenter struct {
 type role struct {
 	SuperAdmin, Admin, Publisher, Author, RegisteredUser int
 }
-var Roles = role{0, 1, 5, 8, 11}
-var RoleToString = map[int]string{0: "SuperAdmin", 1: "Admin", 5: "Publisher", 8: "Author", 11: "RegisteredUser"}
+var Roles = role{99, 1, 5, 7, 9}
+
+var RoleToString = map[int]string{99: "SuperAdmin", 1: "Admin", 5: "Publisher", 7: "Editor", 9: "RegisteredUser"}
 
 func presenterFromModel(usr *models.User) (pres Presenter) {
 	if usr.CreatedAt.Valid {

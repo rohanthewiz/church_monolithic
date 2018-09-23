@@ -1,19 +1,17 @@
 package admin_controller
 
 import (
-	"time"
 	"errors"
 	"github.com/labstack/echo"
-	. "github.com/rohanthewiz/logger"
-	"gopkg.in/nullbio/null.v6"
-	ctx "github.com/rohanthewiz/church/web/context"
-	"github.com/rohanthewiz/church/resource/user"
+	"github.com/rohanthewiz/church/admin"
 	"github.com/rohanthewiz/church/db"
 	"github.com/rohanthewiz/church/models"
 	"github.com/rohanthewiz/church/util/stringops"
+	ctx "github.com/rohanthewiz/church/web/context"
+	. "github.com/rohanthewiz/logger"
+	"gopkg.in/nullbio/null.v6"
+	"time"
 )
-
-const supertoken = "891ea66e067cfa7ef9b2f2b8522943f50a11ae3fbe7d74ed212b055de1d209d4"
 
 func AdminHandler(c echo.Context) error {
 	c.String(200, "Hello Administrator!")
@@ -63,25 +61,12 @@ func CreateTestEvents(c echo.Context) error {
 	return nil
 }
 
-// If no superadmins exist and you have the right token in "supertok"
-// create a superadministrator - todo
+// Create a superadministrator if no superadmins exist and you pass the right token
+// This is useful for bootstrapping users
+// Query params: token, username, password
 func SetupSuperAdmin(c echo.Context) error {
-	// if no superadmins exist and c.FormValue...
-	exists, err := user.SuperAdminsExist()
-	if err != nil {
-		return err
-	}
-	if exists {
-		Log("info", "Superadmin already exists")
-		return err
-	}
-	Log("info", "Superadmin does not exist. We'll create one.")
+	if admin.SuperToken == "" || c.QueryParam("token") != admin.SuperToken { return errors.New("ye shalt not pass") }
 
-	if c.FormValue("supertok") == supertoken {
-		Log("Info", "Here we would create a super administrator")
-		// create a superadministrator ... todo
-	} else {
-		Log("Info", "Valid token not provided")
-	}
-	return nil
+	Log("info", "Creating superadmin", "username", c.QueryParam("username"), "password", c.QueryParam("password"))
+	return admin.CreateSuperUser(c.QueryParam("username"), c.QueryParam("password"))
 }

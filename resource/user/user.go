@@ -24,6 +24,9 @@ func SaveUser(username string, phash, salt null.String, role int) error {
 		EncryptedPassword: phash,
 		EncryptedSalt: salt,
 		Role: role,
+		Enabled: true,
+		EmailAddress: "superadmin@thisSite.com",
+		FirstName: "Super",
 	}
 	db, err := db.Db()
 	if err != nil {
@@ -38,6 +41,7 @@ func SaveUser(username string, phash, salt null.String, role int) error {
 	return err
 }
 
+// Return user's stored credentials
 func UserCreds(username string) (string, string, error) {
 	db, err := db.Db()
 	if err != nil {
@@ -45,7 +49,7 @@ func UserCreds(username string) (string, string, error) {
 	}
 	user, err := models.Users(db,
 		Select("encrypted_password", "encrypted_salt"),
-	Where("username = ?", username)).One()
+	Where("username = ? and enabled = ?", username, true)).One()
 	if err != nil {
 		return "", "", err
 	}
@@ -63,7 +67,7 @@ func FullName(usr *models.User) string {
 func SuperAdminsExist() (bool, error) {
 	db, err := db.Db()
 	if err != nil {
-		Log("Error", "Error obtaining db handle", "stage", "dbopen")
+		Log("Error", "Error obtaining db handle", "when", "opening db")
 		return false, err
 	}
 	return models.Users(db, Where("role = ?", Roles.SuperAdmin)).Exists()

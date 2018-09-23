@@ -31,6 +31,7 @@ func LoginHandler(c echo.Context) error {
 }
 
 // POST /auth  // Authentication
+// Todo: test that disabled user cannot login
 func AuthHandler(c echo.Context) error {
 	username := c.FormValue("username")
 	password := c.FormValue("password")
@@ -76,7 +77,8 @@ func LogoutHandler(c echo.Context) (error) {  // don't ever send an error back t
 	return nil
 }
 
-// POST /adduser // todo add role
+// POST /adduser
+// This function is deprecated
 func RegisterUser(c echo.Context) error {
 	//fmt.Println("Redis ping:", church_redis.Ping())
 	salt := auth.GenSalt("j$&@randomness!!$$$")

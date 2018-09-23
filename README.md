@@ -96,6 +96,10 @@ local   all             all                                     password
 VIPS is used to automatically resize images added to the editor. _We most likely don't need all libraries installed below_. In fact, VIPS isn't critical to the app - you should lose only the image resizing capability.
 
 ```bash
+### hmm should we just install this from apt?
+sudo apt install libvips-dev
+
+### if installing from apt then maybe we don't need the below
 mkdir ~/libs
 cd libs
 wget https://github.com/jcupitt/libvips/releases/download/v8.5.9/vips-8.5.9.tar.gz
@@ -200,10 +204,11 @@ go build
 ### Initial Run
 - I do apologize that there is some seeding required here -- please be patient. (On the TODO is to accomplish the above seeding via Grift scripts or something similar.)
 - Start the server `./church`
-- (Missing: a file with a token with which to start administration)
+- A token is written to the file `token.txt` in the project root. Use the token to create the superadmin user with a url similar to:
+ `TheServerDomain/super?username=mysuperuser&password=secret&token=theTokenblahblah.`
 - The slug of the Main menu should be hardwired to "main-menu". For now manually update that DB entry
 - The slug for the Footer menu also should be hardwired to "footer-menu"
-
+- Some sites may want to make a hardwire of "contact-us" for a Contact page also depending on design.
 
 ### Install RunIt process supervisor (Optional) for running the app resiliently
 sudo apt-get install runit
