@@ -23,6 +23,7 @@ import:
   version: ~1.0.1
 - package: github.com/rohanthewiz/serr
   version: ~1.0.0-rc.1
+- package: github.com/rohanthewiz/roredis
 - package: github.com/rohanthewiz/rotatelogs
   version: ~0.1.2
 - package: github.com/rohanthewiz/element

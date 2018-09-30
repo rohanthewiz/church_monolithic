@@ -3,11 +3,11 @@ package main
 // go:generate sqlboiler postgres
 
 import (
-	"github.com/rohanthewiz/church/admin"
-	"github.com/rohanthewiz/church/config"
-	"github.com/rohanthewiz/church/db"
-	"github.com/rohanthewiz/church/web"
+	"github.com/rohanthewiz/church/chweb/config"
+	"github.com/rohanthewiz/church/chweb/db"
+	"github.com/rohanthewiz/church/chweb"
 	. "github.com/rohanthewiz/logger"
+	"github.com/rohanthewiz/roredis"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/relistan/rubberneck.v1"
 )
@@ -28,6 +28,7 @@ func main() {
 		ErrorPath: config.Options.Log.ErrorPath,
 	})
 	defer CloseLog()
+
 	err := db.InitDB(db.DBOpts{
 		DBType: db.DBTypes.Postgres,
 		Host: config.Options.PG.Host,
@@ -41,14 +42,15 @@ func main() {
 	}
 	defer db.CloseDB()
 
+	roredis.InitRedis(roredis.RedisCfg{
+		Host: "localhost", DB: 0, // default -> Port: "6379",
+	})
+
 	logrus.Println(config.APP_NAME, "is starting...")
 	rubberneck.NewPrinter(logrus.Infof, rubberneck.NoAddLineFeed).Print(config.Options) // print config to log
 
 	Log("Info", "Version Info", "Version", config.Version, "CommitHash", config.GitCommitHash,
-		"BuildTimestamp", config.BuildTimestamp)
+			"BuildTimestamp", config.BuildTimestamp)
 
-	// Do auth initialization
-	admin.AuthBootstrap()
-
-	web.Serve()
+	chweb.Serve()
 }

@@ -2,8 +2,8 @@
 .DS_Store
 
 church
-config/options.yml
-config/random_seeds.txt
+cfg/options.yml
+cfg/random_seeds.txt
 sqlboiler.toml
 
 log/*
@@ -16,8 +16,3 @@ node_modules/
 # Store for dynamic images from articles etc.
 dist/img/*
 !dist/img/.keep
-
-exmaple/log/
-example/.idea/
-example/config/options.yml
-# keep sample random_seeds

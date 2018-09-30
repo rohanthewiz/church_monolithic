@@ -489,7 +489,7 @@ body #banner {
   width: 100%;
   font-weight: bold;
   text-align: center;
-  background: #fdfdfd url("/assets/images/ccem_dove.png") no-repeat scroll 0 50%;
+  background: #fdfdfd url("/assets/images/logo.png") no-repeat scroll 0 50%;
 }
 body #banner.theme-cobalt {
   color: #303030;
@@ -511,18 +511,6 @@ body #banner .logo-right {
   top: 0;
   right: 0;
   z-index: -1;
-}
-body #banner #logo-extension {
-  height: 22px;
-  position: absolute;
-  width: calc(100% - 151px);
-  right: 0;
-  bottom: 0;
-  padding-top: 0.2rem;
-  font-size: 0.9rem;
-  color: #fafaf7;
-  background-color: #000;
-  text-align: right;
 }
 body #banner #logo-top-line {
   position: absolute;
@@ -704,30 +692,6 @@ body .categories {
 body .edit-link > .edit-icon {
   height: 33px;
   padding: 0.1rem;
-}
-body .sermon-title {
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
-}
-body .sermon-sub-title,
-body .sermon-footer {
-  font-size: 0.9em;
-  color: #707070;
-}
-body .sermon-play-icon {
-  padding-left: 28px;
-}
-body .ch-sermons_list {
-  height: 100%;
-}
-body .ch-sermons-list-wrapper {
-  position: relative;
-  height: calc(100% - 20px);
-}
-body .sermons-list-title {
-  text-align: center;
-  padding-left: 0.1rem;
-  padding-right: 0.1rem;
 }
 body #page_form .btn-add-module {
   position: static !important;

@@ -1,16 +1,26 @@
-hash: 9f96f6c161fa3eee9728baebd5ffed8c35abb6c7938778f2c7871e421f1b7b2a
-updated: 2018-08-26T00:59:31.760950753-05:00
+hash: b459029a3a4be016fe41317d9140e0b13908b8f21356d0083f8b59c573744e4a
+updated: 2018-09-29T21:45:47.777425376-05:00
 imports:
 - name: cloud.google.com/go
-  version: b1954287c11b66ec6972819af95ccd7af1b3cdb1
+  version: 1e54f791099732537f76204a7d56befc984642d4
   subpackages:
   - civil
 - name: github.com/andybalholm/cascadia
   version: 901648c87902174f774fac311d7f176f8647bdaa
 - name: github.com/denisenkom/go-mssqldb
-  version: 8fac8b954edb5b2b4ade733422de37ced41823c8
+  version: 1eb28afdf9b6e56cf673badd47545f844fe81103
   subpackages:
   - internal/cp
+- name: github.com/go-redis/redis
+  version: 69445c6e87e0af14f9625a1596620845a2b88e9e
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
+  - internal/singleflight
+  - internal/util
 - name: github.com/go-sql-driver/mysql
   version: 99ff426eb706cffe92ff3d058e168b278cabf7c7
 - name: github.com/h2non/bimg
@@ -35,7 +45,7 @@ imports:
 - name: github.com/mattn/go-colorable
   version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
 - name: github.com/mattn/go-isatty
-  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
 - name: github.com/nullbio/inflect
   version: 3edb4592a77b0072b13dc3ed0669c08c266f6c73
 - name: github.com/pierrec/xxHash
@@ -54,6 +64,8 @@ imports:
   version: 086593ec0de88c9753a51eb1e51fb5014434a51a
 - name: github.com/rohanthewiz/roftp
   version: 26b4fb1338b198bd26a2b2747df8e915536e5f86
+- name: github.com/rohanthewiz/roredis
+  version: 1f6380dfc68e08e37d654028aa76e34a1fa7cebf
 - name: github.com/rohanthewiz/rotatelogs
   version: f040fb921e630cf810a740075da9b2a36c4ac44c
 - name: github.com/rohanthewiz/serr
@@ -63,7 +75,7 @@ imports:
 - name: github.com/sirupsen/logrus
   version: 3e01752db0189b9157070a0e1668a620f9a85da2
 - name: github.com/valyala/bytebufferpool
-  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
+  version: cdfbe9377474227bb42120c1e22fd4433e7f69bf
 - name: github.com/valyala/fasttemplate
   version: dcecefd839c4193db0d35b88ec65b4c12d360ab0
 - name: github.com/vattle/sqlboiler
@@ -89,7 +101,7 @@ imports:
   - scrypt
   - ssh/terminal
 - name: golang.org/x/net
-  version: 8a410e7b638dca158bf9e766925842f6651ff828
+  version: 4dfa2610cdf3b287375bbba5b8f2a14d3b01d8de
   subpackages:
   - html
   - html/atom
@@ -99,7 +111,7 @@ imports:
   - unix
   - windows
 - name: google.golang.org/appengine
-  version: 4216e58b9158e5f1c906f1aca75162a46a2ec88a
+  version: ae0ab99deb4dc413a2b4bd6c8bdd0eb67f1e4d06
   subpackages:
   - cloudsql
 - name: gopkg.in/nullbio/null.v6
@@ -108,21 +120,15 @@ imports:
   - convert
 - name: gopkg.in/redis.v5
   version: a16aeec10ff407b1e7be6dd35797ccf5426ef0f0
-  subpackages:
-  - internal
-  - internal/consistenthash
-  - internal/hashtag
-  - internal/pool
-  - internal/proto
 - name: gopkg.in/relistan/rubberneck.v1
   version: 4c696efeea6013864af139313af7c7492458fbbf
 - name: gopkg.in/yaml.v2
   version: a3f3340b5840cee44f372bddb5880fcbc419b46a
 testImports:
 - name: github.com/fsnotify/fsnotify
-  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
+  version: ccc981bf80385c528a65fbfdd49bf2d8da22aa23
 - name: github.com/hashicorp/hcl
-  version: 8cb6e5b959231cc1119e43259c4a608f9c51a241
+  version: 65a6292f0157eff210d03ed1bf6c59b190b8b906
   subpackages:
   - hcl/ast
   - hcl/parser
@@ -138,23 +144,23 @@ testImports:
 - name: github.com/magiconair/properties
   version: c2353362d570a7bfa228149c62842019201cfb71
 - name: github.com/mitchellh/mapstructure
-  version: fa473d140ef3c6adf42d6b391fe76707f1f243c8
+  version: ce2ff0c13ce509e36e9254c08ea0bca90ed5af6c
 - name: github.com/pelletier/go-toml
-  version: c2dbbc24a97911339e01bda0b8cabdbd8f13b602
+  version: 78b76feda6f35b2c5c1d283513f6419e59086729
 - name: github.com/spf13/afero
-  version: 787d034dfe70e44075ccc060d346146ef53270ad
+  version: d40851caa0d747393da1ffb28f7f9d8b4eeffebd
   subpackages:
   - mem
 - name: github.com/spf13/cast
   version: 8965335b8c7107321228e3e3702cab9832751bac
 - name: github.com/spf13/jwalterweatherman
-  version: 14d3d4c518341bea657dd8a226f5121c0ff8c9f2
+  version: 4a4406e478ca629068e7768fc33f3f044173c0a6
 - name: github.com/spf13/pflag
   version: 9ff6c6923cfffbcd502984b8e0c80539a94968b7
 - name: github.com/spf13/viper
-  version: 907c19d40d9a6c9bb55f040ff4ae45271a4754b9
+  version: 8e194e8ad2432506b0a6dac93dd7876fca7a94a5
 - name: golang.org/x/text
-  version: 6e3c4e7365ddcc329f090f96e4348398f6310088
+  version: 905a57155faa8230500121607930ebb9dd8e139c
   subpackages:
   - transform
   - unicode/norm
